@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Percentual de Faturamento por Estado</title>
+    <script>
+        function calcularPercentual() {
+            // Faturamento por estado
+            const faturamento = {
+                SP: 67836.43,
+                RJ: 36678.66,
+                MG: 29229.88,
+                ES: 27165.48,
+                Outros: 19849.53
+            };
+
+            // Calculando o faturamento total
+            const total = faturamento.SP + faturamento.RJ + faturamento.MG + faturamento.ES + faturamento.Outros;
+
+            // Calculando o percentual de cada estado
+            const percentualSP = (faturamento.SP / total) * 100;
+            const percentualRJ = (faturamento.RJ / total) * 100;
+            const percentualMG = (faturamento.MG / total) * 100;
+            const percentualES = (faturamento.ES / total) * 100;
+            const percentualOutros = (faturamento.Outros / total) * 100;
+
+            // Exibindo os resultados
+            document.getElementById("percentualSP").innerHTML = `SP: ${percentualSP.toFixed(2)}%`;
+            document.getElementById("percentualRJ").innerHTML = `RJ: ${percentualRJ.toFixed(2)}%`;
+            document.getElementById("percentualMG").innerHTML = `MG: ${percentualMG.toFixed(2)}%`;
+            document.getElementById("percentualES").innerHTML = `ES: ${percentualES.toFixed(2)}%`;
+            document.getElementById("percentualOutros").innerHTML = `Outros: ${percentualOutros.toFixed(2)}%`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Percentual de Faturamento por Estado</h1>
+    <button onclick="calcularPercentual()">Calcular Percentual</button>
+
+    <p id="percentualSP"></p>
+    <p id="percentualRJ"></p>
+    <p id="percentualMG"></p>
+    <p id="percentualES"></p>
+    <p id="percentualOutros"></p>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificar Fibonacci</title>
+    <script>
+        function pertenceFibonacci() {
+            const numero = parseInt(document.getElementById("numero").value);
+            let fib_a = 0, fib_b = 1;
+
+            // Caso o número seja 0 ou 1, ele pertence à sequência
+            if (numero === 0 || numero === 1) {
+                document.getElementById("resultado").innerHTML = `O número ${numero} pertence à sequência de Fibonacci.`;
+                return;
+            }
+
+            // Calcula a sequência de Fibonacci até alcançar ou ultrapassar o número informado
+            while (fib_b < numero) {
+                let temp = fib_b;
+                fib_b = fib_a + fib_b;
+                fib_a = temp;
+            }
+
+            // Verifica se o número informado é igual a algum valor da sequência
+            if (fib_b === numero) {
+                document.getElementById("resultado").innerHTML = `O número ${numero} pertence à sequência de Fibonacci.`;
+            } else {
+                document.getElementById("resultado").innerHTML = `O número ${numero} NÃO pertence à sequência de Fibonacci.`;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Verificador de Fibonacci</h1>
+    <p>Informe um número e descubra se ele pertence à sequência de Fibonacci:</p>
+
+    <input type="number" id="numero" placeholder="Digite um número">
+    <button onclick="pertenceFibonacci()">Verificar</button>
+
+    <p id="resultado"></p>
+</body>
+</html>
